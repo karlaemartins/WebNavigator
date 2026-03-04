@@ -43,6 +43,8 @@ class SiteListViewController: UIViewController {
         
         viewModel.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
+        
 
 
     }
@@ -98,6 +100,19 @@ extension SiteListViewController: SiteListViewModelDelegate {
     func didUpdateSites() {
         tableView.reloadData()
         
+    }
+
+}
+
+extension SiteListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let site = viewModel.sites[indexPath.row]
+        print(site)
+        let webVC = WebViewController(url: site)
+        
+        navigationController?.pushViewController(webVC, animated: true)
+
     }
 
 }
