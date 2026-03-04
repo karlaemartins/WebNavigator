@@ -88,8 +88,7 @@ extension SiteListViewController: UITableViewDataSource {
 
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
 
-        let site = viewModel.sites[indexPath.row]
-        cell.textLabel?.text = site.absoluteString
+        cell.textLabel?.text = viewModel.displayName(for: indexPath.row)
 
         return cell
     }

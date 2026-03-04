@@ -17,6 +17,10 @@ class SiteListViewModel {
 
     private(set) var sites: [URL] = []
     
+    func displayName(for index: Int) -> String {
+        return sites[index].host ?? sites[index].absoluteString
+    }
+    
     func addSite(from text: String) {
         
         var formattedText = text
