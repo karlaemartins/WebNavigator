@@ -17,13 +17,22 @@ class SiteListViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Web Navigator"
+        title = "Sites Favoritos"
+        
         
         view.addSubview(tableView)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addSiteTapped)
+        )
+        
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -35,6 +44,33 @@ class SiteListViewController: UIViewController {
         viewModel.delegate = self
         tableView.dataSource = self
 
+
+    }
+    
+    @objc private func addSiteTapped() {
+        
+        let alert = UIAlertController(
+            title: "Adicionar site",
+            message: "Digite o endereço do site",
+            preferredStyle: .alert
+        )
+
+        alert.addTextField { textField in
+            textField.placeholder = "https://exemplo.com"
+            textField.keyboardType = .URL
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+
+        let saveAction = UIAlertAction(title: "Salvar", style: .default) { _ in
+            guard let text = alert.textFields?.first?.text else { return }
+            self.viewModel.addSite(from: text)
+        }
+
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+
+        present(alert, animated: true)
 
     }
 
