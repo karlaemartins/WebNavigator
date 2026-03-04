@@ -18,7 +18,14 @@ class SiteListViewModel {
     private(set) var sites: [URL] = []
     
     func addSite(from text: String) {
-        guard let url = URL(string: text) else { return }
+        
+        var formattedText = text
+        
+        if !formattedText.hasPrefix("http") {
+            formattedText = "https://" + formattedText
+        }
+        
+        guard let url = URL(string: formattedText) else { return }
         sites.append(url)
         delegate?.didUpdateSites()
         
