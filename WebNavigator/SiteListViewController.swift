@@ -24,6 +24,7 @@ class SiteListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Sites Favoritos"
         
+        navigationItem.backButtonTitle = ""
         
         view.addSubview(tableView)
         
