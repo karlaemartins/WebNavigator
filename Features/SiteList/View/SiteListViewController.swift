@@ -118,7 +118,9 @@ extension SiteListViewController: SiteListViewModelDelegate {
             preferredStyle: .alert
         )
 
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            self.addSiteTapped()
+        })
 
         present(alert, animated: true)
     }
