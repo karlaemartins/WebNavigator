@@ -9,6 +9,7 @@ import UIKit
 
 protocol SiteListViewModelDelegate: AnyObject {
     func didUpdateSites()
+    func didReceiveInvalidURL()
 }
 
 class SiteListViewModel {
@@ -23,16 +24,26 @@ class SiteListViewModel {
     
     func addSite(from text: String) {
         
+        if !text.contains(".") {
+            delegate?.didReceiveInvalidURL()
+            return
+        }
+        
         var formattedText = text
         
         if !formattedText.hasPrefix("http") {
             formattedText = "https://" + formattedText
         }
         
-        guard let url = URL(string: formattedText) else { return }
+        guard let url = URL(string: formattedText) else {
+            delegate?.didReceiveInvalidURL()
+            return
+        }
+
         sites.append(url)
         delegate?.didUpdateSites()
+    }
         
 
     }
-}
+

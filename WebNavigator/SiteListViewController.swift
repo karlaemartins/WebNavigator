@@ -100,6 +100,18 @@ extension SiteListViewController: SiteListViewModelDelegate {
         tableView.reloadData()
         
     }
+    
+    func didReceiveInvalidURL() {
+        let alert = UIAlertController(
+            title: "URL inválida",
+            message: "Digite um endereço válido.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alert, animated: true)
+    }
 
 }
 
