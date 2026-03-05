@@ -6,8 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		115C57A02F5607BF00EB5209 /* SiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57972F5607BF00EB5209 /* SiteListViewController.swift */; };
+		115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57982F5607BF00EB5209 /* SiteListViewModel.swift */; };
+		115C57A62F58CAE200EB5209 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57A52F58CAE200EB5209 /* WebViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		115C572E2F47817800EB5209 /* WebNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		115C57972F5607BF00EB5209 /* SiteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteListViewController.swift; sourceTree = "<group>"; };
+		115C57982F5607BF00EB5209 /* SiteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteListViewModel.swift; sourceTree = "<group>"; };
+		115C57A52F58CAE200EB5209 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +54,7 @@
 		115C57252F47817800EB5209 = {
 			isa = PBXGroup;
 			children = (
+				115C57ED2F59DFBF00EB5209 /* Features */,
 				115C57302F47817800EB5209 /* WebNavigator */,
 				115C572F2F47817800EB5209 /* Products */,
 			);
@@ -56,6 +66,56 @@
 				115C572E2F47817800EB5209 /* WebNavigator.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		115C57ED2F59DFBF00EB5209 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				115C57EF2F59E00500EB5209 /* WebView */,
+				115C57EE2F59DFE300EB5209 /* SiteList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		115C57EE2F59DFE300EB5209 /* SiteList */ = {
+			isa = PBXGroup;
+			children = (
+				115C57F12F59E08200EB5209 /* ViewModel */,
+				115C57F02F59E07400EB5209 /* View */,
+			);
+			path = SiteList;
+			sourceTree = "<group>";
+		};
+		115C57EF2F59E00500EB5209 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				115C57F22F59E12D00EB5209 /* View */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		115C57F02F59E07400EB5209 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				115C57972F5607BF00EB5209 /* SiteListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		115C57F12F59E08200EB5209 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				115C57982F5607BF00EB5209 /* SiteListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		115C57F22F59E12D00EB5209 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				115C57A52F58CAE200EB5209 /* WebViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115C57A62F58CAE200EB5209 /* WebViewController.swift in Sources */,
+				115C57A02F5607BF00EB5209 /* SiteListViewController.swift in Sources */,
+				115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
