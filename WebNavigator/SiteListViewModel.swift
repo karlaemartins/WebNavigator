@@ -43,6 +43,11 @@ class SiteListViewModel {
         sites.append(url)
         delegate?.didUpdateSites()
     }
+    
+    func removeSite(at index: Int) {
+        sites.remove(at: index)
+        delegate?.didUpdateSites()
+    }
         
 
     }

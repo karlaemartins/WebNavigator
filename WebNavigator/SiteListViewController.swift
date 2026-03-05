@@ -79,18 +79,27 @@ class SiteListViewController: UIViewController {
 }
 
 extension SiteListViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.sites.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-
+        
         cell.textLabel?.text = viewModel.displayName(for: indexPath.row)
-
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            viewModel.removeSite(at: indexPath.row)
+        }
     }
 }
 
