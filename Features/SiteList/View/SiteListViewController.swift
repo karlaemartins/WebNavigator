@@ -129,7 +129,27 @@ extension SiteListViewController: SiteListViewModelDelegate {
 
 extension SiteListViewController: UITableViewDelegate {
     
+    func didReachLimit() {
+        let alert = UIAlertController(
+            title: "Memória cheia",
+            message: "Você atingiu o limite de 10 sites. Deseja limpar a lista?",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+
+        let clearAction = UIAlertAction(title: "Limpar", style: .destructive) { _ in
+            self.viewModel.clearSites()
+        }
+
+        alert.addAction(cancelAction)
+        alert.addAction(clearAction)
+
+        present(alert, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let site = viewModel.sites[indexPath.row]
         print(site)
         if let url = URL(string: site.url) {

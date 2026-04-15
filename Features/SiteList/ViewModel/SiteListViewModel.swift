@@ -10,6 +10,7 @@ import UIKit
 protocol SiteListViewModelDelegate: AnyObject {
     func didUpdateSites()
     func didReceiveInvalidURL()
+    func didReachLimit()
 }
 
 class SiteListViewModel {
@@ -39,6 +40,11 @@ class SiteListViewModel {
     
     func addSite(from text: String) {
         
+        if sites.count >= 10 {
+            delegate?.didReachLimit()
+            return
+        }
+        
         if !text.contains(".") {
             delegate?.didReceiveInvalidURL()
             return
@@ -50,7 +56,7 @@ class SiteListViewModel {
             formattedText = "https://" + formattedText
         }
         
-        guard let url = URL(string: formattedText) else {
+        guard URL(string: formattedText) != nil else {
             delegate?.didReceiveInvalidURL()
             return
         }
@@ -63,6 +69,12 @@ class SiteListViewModel {
     
     func removeSite(at index: Int) {
         sites.remove(at: index)
+        storage.saveSites(sites)
+        delegate?.didUpdateSites()
+    }
+    
+    func clearSites() {
+        sites.removeAll()
         storage.saveSites(sites)
         delegate?.didUpdateSites()
     }
