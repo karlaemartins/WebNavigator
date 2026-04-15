@@ -15,11 +15,26 @@ protocol SiteListViewModelDelegate: AnyObject {
 class SiteListViewModel {
     
     weak var delegate: SiteListViewModelDelegate?
-
-    private(set) var sites: [URL] = []
+    private(set) var sites: [Site] = []
+    private let storage = FavoritesStorageService()
+    
+    init() {
+        loadSites()
+    }
+    
+    private func loadSites() {
+        sites = storage.loadSites()
+        
+    }
     
     func displayName(for index: Int) -> String {
-        return sites[index].host ?? sites[index].absoluteString
+        let urlString = sites[index].url
+        
+        if let url = URL(string: urlString) {
+            return url.host ?? urlString
+        }
+        
+        return urlString
     }
     
     func addSite(from text: String) {
@@ -40,12 +55,15 @@ class SiteListViewModel {
             return
         }
 
-        sites.append(url)
+        let site = Site(url: formattedText)
+        sites.append(site)
+        storage.saveSites(sites)
         delegate?.didUpdateSites()
     }
     
     func removeSite(at index: Int) {
         sites.remove(at: index)
+        storage.saveSites(sites)
         delegate?.didUpdateSites()
     }
         

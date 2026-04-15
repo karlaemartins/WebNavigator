@@ -132,10 +132,9 @@ extension SiteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let site = viewModel.sites[indexPath.row]
         print(site)
-        let webVC = WebViewController(url: site)
-        
-        navigationController?.pushViewController(webVC, animated: true)
-
+        if let url = URL(string: site.url) {
+            let webVC = WebViewController(url: url)
+            navigationController?.pushViewController(webVC, animated: true)
+        }
     }
-
 }
