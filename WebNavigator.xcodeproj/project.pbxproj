@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1112FDEA2F8ED493003F1691 /* FavoritesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1112FDE92F8ED493003F1691 /* FavoritesStorageService.swift */; };
 		1112FDED2F8ED4EE003F1691 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1112FDEC2F8ED4EE003F1691 /* Site.swift */; };
+		1112FDF12F900FD6003F1691 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1112FDF02F900FD6003F1691 /* AppCoordinator.swift */; };
 		115C57A02F5607BF00EB5209 /* SiteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57972F5607BF00EB5209 /* SiteListViewController.swift */; };
 		115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57982F5607BF00EB5209 /* SiteListViewModel.swift */; };
 		115C57A62F58CAE200EB5209 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57A52F58CAE200EB5209 /* WebViewController.swift */; };
@@ -17,6 +18,7 @@
 /* Begin PBXFileReference section */
 		1112FDE92F8ED493003F1691 /* FavoritesStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStorageService.swift; sourceTree = "<group>"; };
 		1112FDEC2F8ED4EE003F1691 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
+		1112FDF02F900FD6003F1691 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		115C572E2F47817800EB5209 /* WebNavigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebNavigator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115C57972F5607BF00EB5209 /* SiteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteListViewController.swift; sourceTree = "<group>"; };
 		115C57982F5607BF00EB5209 /* SiteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteListViewModel.swift; sourceTree = "<group>"; };
@@ -87,9 +89,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1112FDEF2F900FBF003F1691 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1112FDF02F900FD6003F1691 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		115C57252F47817800EB5209 = {
 			isa = PBXGroup;
 			children = (
+				1112FDEF2F900FBF003F1691 /* Coordinator */,
 				1112FDE42F8ED279003F1691 /* Core */,
 				115C57ED2F59DFBF00EB5209 /* Features */,
 				115C57302F47817800EB5209 /* WebNavigator */,
@@ -233,6 +244,7 @@
 				115C57A62F58CAE200EB5209 /* WebViewController.swift in Sources */,
 				1112FDEA2F8ED493003F1691 /* FavoritesStorageService.swift in Sources */,
 				1112FDED2F8ED4EE003F1691 /* Site.swift in Sources */,
+				1112FDF12F900FD6003F1691 /* AppCoordinator.swift in Sources */,
 				115C57A02F5607BF00EB5209 /* SiteListViewController.swift in Sources */,
 				115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */,
 			);

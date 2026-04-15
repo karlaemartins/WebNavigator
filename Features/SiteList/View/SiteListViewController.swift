@@ -10,6 +10,7 @@ import UIKit
 class SiteListViewController: UIViewController {
     
     private let viewModel = SiteListViewModel()
+    var coordinator: AppCoordinatorProtocol?
     
     
     private let tableView: UITableView = {
@@ -151,10 +152,9 @@ extension SiteListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let site = viewModel.sites[indexPath.row]
-        print(site)
+        
         if let url = URL(string: site.url) {
-            let webVC = WebViewController(url: url)
-            navigationController?.pushViewController(webVC, animated: true)
+            coordinator?.openSite(with: url)
         }
     }
 }

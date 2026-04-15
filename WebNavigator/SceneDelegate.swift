@@ -25,10 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let siteListVC = SiteListViewController()
-        let navigationController = UINavigationController(rootViewController: siteListVC)
-        
-        window?.rootViewController = navigationController
+        let coordinator = AppCoordinator()
+        window?.rootViewController = coordinator.start()
         window?.makeKeyAndVisible()
 
     }
