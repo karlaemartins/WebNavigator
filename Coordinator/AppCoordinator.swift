@@ -10,6 +10,7 @@ import UIKit
 
 protocol AppCoordinatorProtocol {
     func openSite(with url: URL)
+    func showLimitAlert(onClear: @escaping () -> Void)
 }
 
 class AppCoordinator: AppCoordinatorProtocol {
@@ -29,5 +30,24 @@ class AppCoordinator: AppCoordinatorProtocol {
     func openSite(with url: URL) {
         let webVC = WebViewController(url: url)
         navigationController?.pushViewController(webVC, animated: true)
+    }
+    
+    func showLimitAlert(onClear: @escaping () -> Void) {
+        let alert = UIAlertController(
+            title: "Memória cheia",
+            message: "Você atingiu o limite de 10 sites. Deseja limpar a lista?",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+        
+        let clearAction = UIAlertAction(title: "Limpar", style: .destructive) { _ in
+            onClear()
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(clearAction)
+        
+        navigationController?.present(alert, animated: true)
     }
 }
