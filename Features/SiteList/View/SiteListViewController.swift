@@ -9,7 +9,7 @@ import UIKit
 
 class SiteListViewController: UIViewController {
     
-    private let viewModel = SiteListViewModel()
+    private let viewModel: SiteListViewModel
     var coordinator: AppCoordinatorProtocol?
     
     
@@ -18,6 +18,15 @@ class SiteListViewController: UIViewController {
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
+    
+    init(viewModel: SiteListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 
     override func viewDidLoad() {
@@ -77,7 +86,6 @@ class SiteListViewController: UIViewController {
         present(alert, animated: true)
 
     }
-
 }
 
 extension SiteListViewController: UITableViewDataSource {

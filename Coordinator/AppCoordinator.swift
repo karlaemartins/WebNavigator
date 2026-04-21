@@ -18,7 +18,9 @@ class AppCoordinator: AppCoordinatorProtocol {
     private var navigationController: UINavigationController?
     
     func start() -> UIViewController {
-        let viewController = SiteListViewController()
+        let storage = FavoritesStorageService()
+        let viewModel = SiteListViewModel(storage: storage)
+        let viewController = SiteListViewController(viewModel: viewModel)
         viewController.coordinator = self
         
         let navigationController = UINavigationController(rootViewController: viewController)
