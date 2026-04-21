@@ -8,7 +8,7 @@
 import Foundation
 
 
-final class FavoritesStorageService {
+final class FavoritesStorageService: StorageServiceProtocol {
     
     private let defaults = UserDefaults.standard
     private let sitesKey = "favorite_sites"

@@ -17,9 +17,9 @@ class SiteListViewModel {
     
     weak var delegate: SiteListViewModelDelegate?
     private(set) var sites: [Site] = []
-    private let storage: FavoritesStorageService
+    private let storage: StorageServiceProtocol
     
-    init(storage: FavoritesStorageService) {
+    init(storage: StorageServiceProtocol) {
         self.storage = storage
         loadSites()
     }
