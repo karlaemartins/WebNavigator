@@ -20,7 +20,8 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     func start() -> UIViewController {
         let storage = FavoritesStorageService()
-        let viewModel = SiteListViewModel(storage: storage)
+        let validator = URLValidator()
+        let viewModel = SiteListViewModel(storage: storage, validator: validator)
         let viewController = SiteListViewController(viewModel: viewModel)
         viewController.coordinator = self
         

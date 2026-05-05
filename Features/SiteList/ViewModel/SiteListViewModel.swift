@@ -18,9 +18,11 @@ class SiteListViewModel {
     weak var delegate: SiteListViewModelDelegate?
     private(set) var sites: [Site] = []
     private let storage: StorageServiceProtocol
+    private let validator: URLValidatorProtocol
     
-    init(storage: StorageServiceProtocol) {
+    init(storage: StorageServiceProtocol, validator: URLValidatorProtocol) {
         self.storage = storage
+        self.validator = validator
         loadSites()
     }
     
@@ -46,24 +48,17 @@ class SiteListViewModel {
             return
         }
         
-        var formattedText = text
-        
-        if !formattedText.hasPrefix("http") {
-            formattedText = "https://" + formattedText
-        }
-        
-        guard let url = URL(string: formattedText), let host = url.host, host.contains(".")
-
-        else {
+        guard let url = validator.validate(text) else {
             delegate?.didReceiveInvalidURL()
             return
         }
-
-        let site = Site(url: formattedText)
-        sites.append(site)
-        storage.saveSites(sites)
-        delegate?.didUpdateSites()
-    }
+        
+    
+        let site = Site(url: url.absoluteString)
+            sites.append(site)
+            storage.saveSites(sites)
+            delegate?.didUpdateSites()
+        }
     
     func removeSite(at index: Int) {
         sites.remove(at: index)

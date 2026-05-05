@@ -14,6 +14,8 @@
 		115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57982F5607BF00EB5209 /* SiteListViewModel.swift */; };
 		115C57A62F58CAE200EB5209 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C57A52F58CAE200EB5209 /* WebViewController.swift */; };
 		11923C7A2F980EFC00C2B00C /* StorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11923C792F980EFC00C2B00C /* StorageServiceProtocol.swift */; };
+		11FB81DC2FAA85D4006C34DD /* URLValidatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB81DB2FAA85D4006C34DD /* URLValidatorProtocol.swift */; };
+		11FB81DE2FAA8663006C34DD /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB81DD2FAA8663006C34DD /* URLValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		115C57982F5607BF00EB5209 /* SiteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteListViewModel.swift; sourceTree = "<group>"; };
 		115C57A52F58CAE200EB5209 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		11923C792F980EFC00C2B00C /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
+		11FB81DB2FAA85D4006C34DD /* URLValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidatorProtocol.swift; sourceTree = "<group>"; };
+		11FB81DD2FAA8663006C34DD /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -71,6 +75,8 @@
 			isa = PBXGroup;
 			children = (
 				1112FDE62F8ED35F003F1691 /* Storage */,
+				11FB81DB2FAA85D4006C34DD /* URLValidatorProtocol.swift */,
+				11FB81DD2FAA8663006C34DD /* URLValidator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,9 +254,11 @@
 				1112FDEA2F8ED493003F1691 /* FavoritesStorageService.swift in Sources */,
 				1112FDED2F8ED4EE003F1691 /* Site.swift in Sources */,
 				1112FDF12F900FD6003F1691 /* AppCoordinator.swift in Sources */,
+				11FB81DC2FAA85D4006C34DD /* URLValidatorProtocol.swift in Sources */,
 				115C57A02F5607BF00EB5209 /* SiteListViewController.swift in Sources */,
 				115C57A12F5607BF00EB5209 /* SiteListViewModel.swift in Sources */,
 				11923C7A2F980EFC00C2B00C /* StorageServiceProtocol.swift in Sources */,
+				11FB81DE2FAA8663006C34DD /* URLValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
