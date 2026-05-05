@@ -11,6 +11,7 @@ import UIKit
 protocol AppCoordinatorProtocol {
     func openSite(with url: URL)
     func showLimitAlert(onClear: @escaping () -> Void)
+    func showInvalidURLAlert()
 }
 
 class AppCoordinator: AppCoordinatorProtocol {
@@ -52,4 +53,19 @@ class AppCoordinator: AppCoordinatorProtocol {
         
         navigationController?.present(alert, animated: true)
     }
+    
+    func showInvalidURLAlert() {
+        
+        let alert = UIAlertController(
+            title: "URL inválida",
+            message: "Digite um endereço válido.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+        })
+
+        navigationController?.present(alert, animated: true)
+    }
+    
 }

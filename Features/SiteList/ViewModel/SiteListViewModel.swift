@@ -46,18 +46,15 @@ class SiteListViewModel {
             return
         }
         
-        if !text.contains(".") {
-            delegate?.didReceiveInvalidURL()
-            return
-        }
-        
         var formattedText = text
         
         if !formattedText.hasPrefix("http") {
             formattedText = "https://" + formattedText
         }
         
-        guard URL(string: formattedText) != nil else {
+        guard let url = URL(string: formattedText), let host = url.host, host.contains(".")
+
+        else {
             delegate?.didReceiveInvalidURL()
             return
         }

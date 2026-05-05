@@ -120,29 +120,19 @@ extension SiteListViewController: SiteListViewModelDelegate {
         
     }
     
-    func didReceiveInvalidURL() {
-        let alert = UIAlertController(
-            title: "URL inválida",
-            message: "Digite um endereço válido.",
-            preferredStyle: .alert
-        )
-
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.addSiteTapped()
-        })
-
-        present(alert, animated: true)
-    }
-
-}
-
-extension SiteListViewController: UITableViewDelegate {
-    
     func didReachLimit() {
         coordinator?.showLimitAlert { [weak self] in
             self?.viewModel.clearSites()
         }
     }
+    
+    func didReceiveInvalidURL() {
+        coordinator?.showInvalidURLAlert()
+    }
+
+}
+
+extension SiteListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
