@@ -11,6 +11,8 @@ protocol SiteListViewModelDelegate: AnyObject {
     func didUpdateSites()
     func didReceiveInvalidURL()
     func didReachLimit()
+    func didTryToAddDuplicate()
+    func didPartiallyRecoverSites()
 }
 
 class SiteListViewModel {
@@ -48,8 +50,14 @@ class SiteListViewModel {
             return
         }
         
+        
         guard let url = validator.validate(text) else {
             delegate?.didReceiveInvalidURL()
+            return
+        }
+        
+        if sites.contains(where: { $0.url == url.absoluteString }) {
+            delegate?.didTryToAddDuplicate()
             return
         }
         
@@ -67,11 +75,35 @@ class SiteListViewModel {
     }
     
     func clearSites() {
+        
+        if !sites.isEmpty {
+            storage.saveLastDeletedSites(sites)
+        }
+        
         sites.removeAll()
         storage.saveSites(sites)
         delegate?.didUpdateSites()
     }
+    
+    func recoverSites() {
         
-
+        let deletedSites = storage.loadLastDeletedSites()
+        let newSites = deletedSites.filter { deletedSite in !sites.contains(where: { $0.url == deletedSite.url })
+        }
+        let availableSlots = 10 - sites.count
+        let recoveredSites = Array(newSites.prefix(availableSlots))
+        
+        sites.append(contentsOf: recoveredSites)
+        
+        if newSites.count > availableSlots {
+                delegate?.didPartiallyRecoverSites()
+            }
+        
+        storage.saveSites(sites)
+        delegate?.didUpdateSites()
+        }
+    
+   
     }
+        
 

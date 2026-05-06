@@ -38,12 +38,23 @@ class SiteListViewController: UIViewController {
         
         view.addSubview(tableView)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
+        let addButton = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(addSiteTapped)
         )
         
+        let recoverButton = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.uturn.backward"),
+            style: .plain,
+            target: self,
+            action: #selector(recoverSitesTapped)
+        )
+        
+        navigationItem.rightBarButtonItems = [
+            addButton,
+            recoverButton
+        ]
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -55,9 +66,11 @@ class SiteListViewController: UIViewController {
         viewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
-        
-
-
+    }
+    
+    
+    @objc private func recoverSitesTapped() {
+        viewModel.recoverSites()
     }
     
     @objc private func addSiteTapped() {
@@ -128,6 +141,14 @@ extension SiteListViewController: SiteListViewModelDelegate {
     
     func didReceiveInvalidURL() {
         coordinator?.showInvalidURLAlert()
+    }
+    
+    func didTryToAddDuplicate() {
+        coordinator?.showDuplicateAlert()
+    }
+    
+    func didPartiallyRecoverSites() {
+        coordinator?.showPartialRecoveryAlert()
     }
 
 }

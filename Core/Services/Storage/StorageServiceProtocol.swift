@@ -10,4 +10,6 @@ import Foundation
 protocol StorageServiceProtocol {
     func saveSites(_ sites: [Site])
     func loadSites() -> [Site]
+    func saveLastDeletedSites(_ sites: [Site])
+    func loadLastDeletedSites() -> [Site]
 }

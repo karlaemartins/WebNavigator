@@ -12,6 +12,8 @@ protocol AppCoordinatorProtocol {
     func openSite(with url: URL)
     func showLimitAlert(onClear: @escaping () -> Void)
     func showInvalidURLAlert()
+    func showDuplicateAlert()
+    func showPartialRecoveryAlert()
 }
 
 class AppCoordinator: AppCoordinatorProtocol {
@@ -65,6 +67,32 @@ class AppCoordinator: AppCoordinatorProtocol {
 
         alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
         })
+
+        navigationController?.present(alert, animated: true)
+    }
+    
+    func showDuplicateAlert() {
+        let alert = UIAlertController(
+            title: "Site em duplicidade",
+            message: "Esse site já existe em sua lista.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+        })
+
+        navigationController?.present(alert, animated: true)
+    
+    }
+    
+    func showPartialRecoveryAlert() {
+        let alert = UIAlertController(
+            title: "Recuperação parcial",
+            message: "Alguns sites não puderam ser recuperados porque o limite foi atingido.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
 
         navigationController?.present(alert, animated: true)
     }
