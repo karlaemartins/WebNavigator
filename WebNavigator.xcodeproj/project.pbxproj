@@ -18,6 +18,16 @@
 		11FB81DE2FAA8663006C34DD /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FB81DD2FAA8663006C34DD /* URLValidator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		11FB81E72FB2546F006C34DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 115C57262F47817800EB5209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 115C572D2F47817800EB5209;
+			remoteInfo = WebNavigator;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1112FDE92F8ED493003F1691 /* FavoritesStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStorageService.swift; sourceTree = "<group>"; };
 		1112FDEC2F8ED4EE003F1691 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
@@ -29,6 +39,7 @@
 		11923C792F980EFC00C2B00C /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
 		11FB81DB2FAA85D4006C34DD /* URLValidatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidatorProtocol.swift; sourceTree = "<group>"; };
 		11FB81DD2FAA8663006C34DD /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
+		11FB81E32FB2546F006C34DD /* WebNavigatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebNavigatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,10 +61,22 @@
 			path = WebNavigator;
 			sourceTree = "<group>";
 		};
+		11FB81E42FB2546F006C34DD /* WebNavigatorTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = WebNavigatorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		115C572B2F47817800EB5209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FB81E02FB2546F006C34DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -113,6 +136,7 @@
 				1112FDE42F8ED279003F1691 /* Core */,
 				115C57ED2F59DFBF00EB5209 /* Features */,
 				115C57302F47817800EB5209 /* WebNavigator */,
+				11FB81E42FB2546F006C34DD /* WebNavigatorTests */,
 				115C572F2F47817800EB5209 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				115C572E2F47817800EB5209 /* WebNavigator.app */,
+				11FB81E32FB2546F006C34DD /* WebNavigatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,6 +226,29 @@
 			productReference = 115C572E2F47817800EB5209 /* WebNavigator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		11FB81E22FB2546F006C34DD /* WebNavigatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11FB81E92FB2546F006C34DD /* Build configuration list for PBXNativeTarget "WebNavigatorTests" */;
+			buildPhases = (
+				11FB81DF2FB2546F006C34DD /* Sources */,
+				11FB81E02FB2546F006C34DD /* Frameworks */,
+				11FB81E12FB2546F006C34DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				11FB81E82FB2546F006C34DD /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				11FB81E42FB2546F006C34DD /* WebNavigatorTests */,
+			);
+			name = WebNavigatorTests;
+			packageProductDependencies = (
+			);
+			productName = WebNavigatorTests;
+			productReference = 11FB81E32FB2546F006C34DD /* WebNavigatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,6 +261,10 @@
 				TargetAttributes = {
 					115C572D2F47817800EB5209 = {
 						CreatedOnToolsVersion = 16.1;
+					};
+					11FB81E22FB2546F006C34DD = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 115C572D2F47817800EB5209;
 					};
 				};
 			};
@@ -231,12 +283,20 @@
 			projectRoot = "";
 			targets = (
 				115C572D2F47817800EB5209 /* WebNavigator */,
+				11FB81E22FB2546F006C34DD /* WebNavigatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		115C572C2F47817800EB5209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11FB81E12FB2546F006C34DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,7 +322,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		11FB81DF2FB2546F006C34DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		11FB81E82FB2546F006C34DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 115C572D2F47817800EB5209 /* WebNavigator */;
+			targetProxy = 11FB81E72FB2546F006C34DD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		115C57422F47817900EB5209 /* Debug */ = {
@@ -438,6 +513,42 @@
 			};
 			name = Release;
 		};
+		11FB81EA2FB2546F006C34DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KA667JQ57A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.WebNavigatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebNavigator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WebNavigator";
+			};
+			name = Debug;
+		};
+		11FB81EB2FB2546F006C34DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KA667JQ57A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.raywenderlich.WebNavigatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WebNavigator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WebNavigator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -455,6 +566,15 @@
 			buildConfigurations = (
 				115C57422F47817900EB5209 /* Debug */,
 				115C57432F47817900EB5209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		11FB81E92FB2546F006C34DD /* Build configuration list for PBXNativeTarget "WebNavigatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11FB81EA2FB2546F006C34DD /* Debug */,
+				11FB81EB2FB2546F006C34DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
